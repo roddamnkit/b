@@ -1,5 +1,5 @@
 name: b
-version: 0.1.0-rc.0
+version: 0.1.0
 description: A Dart library for converting between different bases, e.g., decimal ↔ binary, octal ↔ hexadecimal
 repository: https://github.com/dkin-om/b.git
 issue_tracker: https://github.com/dkin-om/b/issues
