@@ -3,7 +3,7 @@ import 'package:b/b.dart';
 final Map<String, dynamic> decimalToDecimalEmoji = <String, dynamic>{
   'instance': BaseConversion.alphabet(
     from: Alphabet(
-      '0123456789',
+      decimal,
       radixPoint: '.',
       repetendSymbols: '()',
     ),

@@ -2,8 +2,8 @@ import 'package:b/b.dart';
 
 final Map<String, dynamic> decimalToBinary = <String, dynamic>{
   'instance': BaseConversion(
-    from: '0123456789',
-    to: '01',
+    from: decimal,
+    to: binary,
   ),
   'testCases': <Map<String, String>>[
     <String, String>{'from': '0', 'to': '0'},

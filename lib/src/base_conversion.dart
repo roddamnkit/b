@@ -179,3 +179,78 @@ class Alphabet {
                 previousCharacter == _repetendEndCharacter));
   }
 }
+
+/// Binary numeral system
+const String binary = '01';
+
+/// Same as [binary] numeral system
+const String base2 = binary;
+
+/// Ternary numeral system
+const String ternary = '012';
+
+/// Same as [ternary] numeral system
+const String base3 = ternary;
+
+/// Quaternary numeral system
+const String quaternary = '0123';
+
+/// Same as [quaternary] numeral system
+const String base4 = quaternary;
+
+/// Quinary numeral system
+const String quinary = '01234';
+
+/// Same as [quinary] numeral system
+const String base5 = quinary;
+
+/// Senary numeral system
+const String senary = '012345';
+
+/// Same as [senary] numeral system
+const String base6 = senary;
+
+/// Octal numeral system
+const String octal = '01234567';
+
+/// Same as [octal] numeral system
+const String base8 = octal;
+
+/// Decimal numeral system
+const String decimal = '0123456789';
+
+/// Same as [decimal] numeral system
+const String base10 = decimal;
+
+/// Duodecimal numeral system
+const String duodecimal = '0123456789AB';
+
+/// Same as [duodecimal] numeral system
+const String base12 = duodecimal;
+
+/// Hexadecimal numeral system
+const String hexadecimal = '0123456789ABCDEF';
+
+/// Same as [hexadecimal] numeral system
+const String base16 = hexadecimal;
+
+/// Base32 numeral system
+const String base32 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+
+/// Base32 (Extended Hex) numeral system
+const String base32hex = '0123456789ABCDEFGHIJKLMNOPQRSTUV';
+
+/// Base36 numeral system
+const String base36 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+/// Base58 numeral system
+const String base58 =
+    '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+
+/// Base64 numeral system
+const String base64 =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+
+/// Base64 (URL and Filename safe) numeral system
+const String base64url =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';

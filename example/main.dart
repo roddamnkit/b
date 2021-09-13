@@ -10,8 +10,8 @@ void decimalAndBinary() {
   // Decimal alphabet - 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
   // Binary alphabet - 0, 1
   final BaseConversion decimalToBinaryConverter = BaseConversion(
-    from: '0123456789',
-    to: '01',
+    from: base10,
+    to: base2,
   );
 
   final String binary = decimalToBinaryConverter('3888');
@@ -27,7 +27,7 @@ void decimalAndDecimalEmoji() {
   // Decimal alphabet - 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
   // Decimal emoji alphabet - 0️⃣, 1️⃣, 2️⃣, 3️⃣, 4️⃣, 5️⃣, 6️⃣, 7️⃣, 8️⃣, 9️⃣
   final BaseConversion decimalToDecimalEmojiConverter = BaseConversion(
-    from: '0123456789',
+    from: base10,
     to: '0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣',
   );
 
@@ -46,7 +46,7 @@ void decimalEmojiAndHexadecimal() {
   // Hexadecimal alphabet - 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
   final BaseConversion decimalEmojiToHexadecimalConverter = BaseConversion(
     from: '0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣',
-    to: '0123456789ABCDEF',
+    to: base16,
   );
 
   final String hexadecimal =
