@@ -1,5 +1,7 @@
 # b - Base conversion
 
+![Base conversion](./.img/b.svg)
+
 [![Version](https://img.shields.io/pub/v/b)](https://pub.dev/packages/b)
 [![Build Status](https://travis-ci.com/dkin-om/b.svg?branch=master)](https://travis-ci.com/dkin-om/b)
 [![Coverage Status](https://coveralls.io/repos/github/dkin-om/b/badge.svg)](https://coveralls.io/github/dkin-om/b)
