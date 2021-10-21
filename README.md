@@ -1,6 +1,6 @@
 # b - Base conversion
 
-![Base conversion](./.img/b.svg)
+![Base conversion](https://raw.githubusercontent.com/dkin-om/b/master/.img/b.png)
 
 [![Version](https://img.shields.io/pub/v/b)](https://pub.dev/packages/b)
 [![Build Status](https://travis-ci.com/dkin-om/b.svg?branch=master)](https://travis-ci.com/dkin-om/b)
