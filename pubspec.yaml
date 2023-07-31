@@ -1,13 +1,19 @@
 name: b
 version: 0.1.1+1
 description: A Dart library for converting between different bases, e.g., decimal ↔ binary, octal ↔ hexadecimal
-repository: https://github.com/dkin-om/b.git
-issue_tracker: https://github.com/dkin-om/b/issues
-homepage: https://github.com/dkin-om/b#readme
+repository: https://github.com/roddamnkit/b.git
+issue_tracker: https://github.com/roddamnkit/b/issues
+homepage: https://github.com/roddamnkit/b#readme
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.12.0 <4.0.0'
 dependencies:
   characters: ^1.1.0
   invertible: ^2.0.0
 dev_dependencies:
   test: ^1.14.4
+screenshots:
+  - description: b package logo
+    path: img/logo.png
+funding:
+  - https://github.com/sponsors/dkin-om
+  - https://ko-fi.com/dkinom

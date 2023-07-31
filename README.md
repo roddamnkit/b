@@ -1,11 +1,11 @@
 # b - Base conversion
 
-[![Base conversion](https://raw.githubusercontent.com/dkin-om/b/master/.img/b.png)](https://github.com/dkin-om/b)
+[![{Package name}](https://raw.githubusercontent.com/roddamnkit/b/master/img/.b.png)](https://github.com/roddamnkit/b)
 
 [![Version](https://img.shields.io/pub/v/b)](https://pub.dev/packages/b)
-[![Build Status](https://travis-ci.com/dkin-om/b.svg?branch=master)](https://app.travis-ci.com/github/dkin-om/b)
-[![Coverage Status](https://coveralls.io/repos/github/dkin-om/b/badge.svg)](https://coveralls.io/github/dkin-om/b)
-[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/dkin-om/b/blob/master/LICENSE)
+[![Build Status](https://github.com/roddamnkit/b/actions/workflows/.github/workflows/dart.yml/badge.svg?branch=master)](https://github.com/roddamnkit/b/actions)
+[![Coverage Status](https://coveralls.io/repos/github/roddamnkit/b/badge.svg)](https://coveralls.io/github/roddamnkit/b)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/roddamnkit/b/blob/master/LICENSE)
 
 A Dart library for converting between different bases, e.g., decimal ↔ binary, octal ↔ hexadecimal
 
@@ -70,4 +70,4 @@ See [documentation](https://pub.dev/documentation/b) for more
 
 ## License
 
-[MIT](https://github.com/dkin-om/b/blob/master/LICENSE)
+[MIT](https://github.com/roddamnkit/b/blob/master/LICENSE)
