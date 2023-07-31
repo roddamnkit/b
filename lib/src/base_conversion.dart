@@ -247,6 +247,10 @@ const String base36 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const String base58 =
     '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 
+/// Base62 numeral system
+const String base62 =
+    '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
 /// Base64 numeral system
 const String base64 =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';

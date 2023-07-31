@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Added `base62` alphabet
+
 ## 0.1.1+1
 
 - Updated `README.md`

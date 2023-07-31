@@ -1,6 +1,6 @@
 # b - Base conversion
 
-[![{Package name}](https://raw.githubusercontent.com/roddamnkit/b/master/img/.b.png)](https://github.com/roddamnkit/b)
+[![Base conversion](https://raw.githubusercontent.com/roddamnkit/b/master/img/.b.png)](https://github.com/roddamnkit/b)
 
 [![Version](https://img.shields.io/pub/v/b)](https://pub.dev/packages/b)
 [![Build Status](https://github.com/roddamnkit/b/actions/workflows/.github/workflows/dart.yml/badge.svg?branch=master)](https://github.com/roddamnkit/b/actions)
@@ -55,6 +55,7 @@ final String decimalEmoji = decimalEmojiToHexadecimalConverter.inverse()('DEADC0
 - `base32hex` - `0123456789ABCDEFGHIJKLMNOPQRSTUV`
 - `base36` - `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`
 - `base58` - `123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz`
+- `base62` - `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`
 - `base64` - `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/`
 - `base64url` - `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_`
 

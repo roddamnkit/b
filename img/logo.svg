@@ -1,0 +1,12 @@
+<svg height="480" width="480" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="none" />
+  <text x="240" y="405" font-family="Berkshire Swash" font-size="420" text-anchor="middle">
+    <tspan fill="#0175c2">b</tspan>
+  </text>
+
+  <defs>
+    <style type="text/css">
+      @import url('http://fonts.googleapis.com/css?family=Berkshire+Swash');
+    </style>
+  </defs>
+</svg>
