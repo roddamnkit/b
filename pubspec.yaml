@@ -1,11 +1,11 @@
 name: b
-version: 0.1.2
+version: 0.2.0
 description: A Dart library for converting between different bases, e.g., decimal ↔ binary, octal ↔ hexadecimal
 repository: https://github.com/roddamnkit/b.git
 issue_tracker: https://github.com/roddamnkit/b/issues
 homepage: https://github.com/roddamnkit/b#readme
 environment:
-  sdk: '>=2.12.0 <4.0.0'
+  sdk: '>=2.13.0 <4.0.0'
 dependencies:
   characters: ^1.1.0
   invertible: ^2.0.0
