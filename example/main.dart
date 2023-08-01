@@ -47,12 +47,13 @@ void decimalEmojiAndHexadecimal() {
   final BaseConversion decimalEmojiToHexadecimalConverter = BaseConversion(
     from: '0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣',
     to: base16,
+    zeroPadding: true,
   );
 
   final String hexadecimal =
       decimalEmojiToHexadecimalConverter('5️⃣1️⃣9️⃣6️⃣6️⃣');
   print(
-      'decimal emoji number 5️⃣1️⃣9️⃣6️⃣6️⃣ is represented as $hexadecimal in hexadecimal'); // CAFE
+      'decimal emoji number 5️⃣1️⃣9️⃣6️⃣6️⃣ is represented as $hexadecimal in hexadecimal'); // 0CAFE
 
   final String decimalEmoji =
       decimalEmojiToHexadecimalConverter.inverse()('DEADC0DE');

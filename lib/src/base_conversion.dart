@@ -4,18 +4,47 @@ part of b;
 /// positional numeral systems.
 class BaseConversion extends InvertibleFunction<String, String> {
   /// Constructs a `BaseConversion` object with the given [from] and [to] alphabets.
-  BaseConversion({required String from, required String to})
-      : _fromAlphabet = Alphabet(from),
-        _toAlphabet = Alphabet(to);
+  BaseConversion({
+    required String from,
+    required String to,
+    bool zeroPadding = false,
+  }) : this.alphabet(
+          from: Alphabet(from),
+          to: Alphabet(to),
+          zeroPadding: zeroPadding,
+        );
 
   /// Constructs a `BaseConversion` object with the given [from] and [to] alphabets.
-  BaseConversion.alphabet({required Alphabet from, required Alphabet to})
-      : _fromAlphabet = from,
-        _toAlphabet = to;
+  BaseConversion.alphabet({
+    required Alphabet from,
+    required Alphabet to,
+    bool zeroPadding = false,
+  })  : _fromAlphabet = from,
+        _toAlphabet = to,
+        _lengthFactor = __lengthFactor(from: from, to: to),
+        _intLengthFactor = (() {
+          final double lengthFactor = __lengthFactor(from: from, to: to);
+          int intLengthFactor = lengthFactor.truncate();
+          if (lengthFactor == intLengthFactor) {
+            return intLengthFactor;
+          } else {
+            final double invLengthFactor = (1 / lengthFactor);
+            intLengthFactor = -invLengthFactor.truncate();
+            if (invLengthFactor == -intLengthFactor) {
+              return intLengthFactor;
+            }
+          }
+          return 0;
+        })(),
+        _zeroPadding = zeroPadding;
 
   final Alphabet _fromAlphabet;
-
   final Alphabet _toAlphabet;
+
+  final double _lengthFactor;
+  final int _intLengthFactor;
+
+  final bool _zeroPadding;
 
   @override
   List<bool Function(String)> get domain =>
@@ -31,15 +60,17 @@ class BaseConversion extends InvertibleFunction<String, String> {
     return r;
   }
 
-  // Horner's method
   String _convertIntegralPart(String ip) {
     final int fromBase = _fromAlphabet.radix;
     final int toBase = _toAlphabet.radix;
 
-    String changeBase(Iterable<int> _values) {
+    (String, int) changeBase(Iterable<int> _values) {
+      // Horner's method
       final Iterable<int> values = _values.skipWhile((int v) => v == 0);
 
-      if (values.isEmpty) return '';
+      if (values.isEmpty) {
+        return ('', 0);
+      }
 
       int remainder = 0;
       final List<int> quotients = <int>[];
@@ -50,19 +81,44 @@ class BaseConversion extends InvertibleFunction<String, String> {
         remainder = remainder % toBase;
       }
 
-      return changeBase(quotients) + _toAlphabet._characters[remainder];
+      final (String r, int rLen) = changeBase(quotients);
+
+      return (r + _toAlphabet._characters[remainder], rLen + 1);
     }
 
-    final String r =
+    final int ipLen = ip.characters.length;
+
+    var (String r, int rLen) =
         changeBase(ip.characters.map(_fromAlphabet._characters.indexOf));
 
-    return r.isNotEmpty ? r : _toAlphabet._characters[0];
+    if (_zeroPadding) {
+      final int currentLength = rLen;
+      final int wantedLength = (ipLen * _lengthFactor).ceil();
+
+      if (currentLength < wantedLength) {
+        final StringBuffer sb = StringBuffer();
+        sb.write(_toAlphabet._zeroCharacter * (wantedLength - currentLength));
+        sb.write(r);
+
+        r = sb.toString();
+      }
+    } else if (r.isEmpty) {
+      r = _toAlphabet._zeroCharacter;
+    }
+
+    return r;
   }
 
   // TODO
-  String _convertFractionalPart(String fp) => _toAlphabet._characters[0];
+  String _convertFractionalPart(String fp) => _toAlphabet._zeroCharacter;
 
   @override
-  BaseConversion inverse() =>
-      BaseConversion.alphabet(from: _toAlphabet, to: _fromAlphabet);
+  BaseConversion inverse() => BaseConversion.alphabet(
+        from: _toAlphabet,
+        to: _fromAlphabet,
+        zeroPadding: _zeroPadding,
+      );
 }
+
+double __lengthFactor({required Alphabet from, required Alphabet to}) =>
+    log(from.radix) / log(to.radix);

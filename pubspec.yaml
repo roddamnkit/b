@@ -5,7 +5,7 @@ repository: https://github.com/roddamnkit/b.git
 issue_tracker: https://github.com/roddamnkit/b/issues
 homepage: https://github.com/roddamnkit/b#readme
 environment:
-  sdk: '>=2.13.0 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 dependencies:
   characters: ^1.1.0
   invertible: ^2.0.0

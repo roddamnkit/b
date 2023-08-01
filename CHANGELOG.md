@@ -1,6 +1,6 @@
 ## 0.2.0
 
-
+- Added zero padding option
 
 ## 0.1.2
 

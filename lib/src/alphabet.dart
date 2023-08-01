@@ -8,6 +8,7 @@ class Alphabet {
     String radixPoint = '.',
     String repetendSymbols = '()',
   })  : _characters = alphabet.characters.toList(),
+        _zeroCharacter = alphabet.characters.first,
         _radixCharacter = radixPoint.characters.length == 1
             ? radixPoint.characters.first
             : throw ArgumentError.value(
@@ -58,11 +59,10 @@ class Alphabet {
   }
 
   final List<String> _characters;
+  final String _zeroCharacter;
 
   final String _radixCharacter;
-
   final String _repetendStartCharacter;
-
   final String _repetendEndCharacter;
 
   /// Radix of this alphabet
