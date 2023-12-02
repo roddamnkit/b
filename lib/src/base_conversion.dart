@@ -102,7 +102,7 @@ class BaseConversion extends InvertibleFunction<String, String> {
 
         r = sb.toString();
       }
-    } else if (r.isEmpty) {
+    } else if (rLen == 0) {
       r = _toAlphabet._zeroCharacter;
     }
 
