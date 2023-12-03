@@ -64,9 +64,15 @@ class BaseConversion extends InvertibleFunction<String, String> {
     final int fromBase = _fromAlphabet.radix;
     final int toBase = _toAlphabet.radix;
 
-    (String, int) changeBase(Iterable<int> _values) {
+    (String, int) changeBase(List<int> _values) {
       // Horner's method
-      final Iterable<int> values = _values.skipWhile((int v) => v == 0);
+      final List<int> values = <int>[];
+      for (int i = 0; i < _values.length; i++) {
+        if (_values[i] != 0) {
+          values.addAll(_values.sublist(i));
+          break;
+        }
+      }
 
       if (values.isEmpty) {
         return ('', 0);
@@ -86,10 +92,13 @@ class BaseConversion extends InvertibleFunction<String, String> {
       return (r + _toAlphabet._characters[remainder], rLen + 1);
     }
 
-    final int ipLen = ip.characters.length;
+    final List<int> values = <int>[];
+    for (final String char in ip.characters) {
+      values.add(_fromAlphabet._characters.indexOf(char));
+    }
+    final int ipLen = values.length;
 
-    var (String r, int rLen) =
-        changeBase(ip.characters.map(_fromAlphabet._characters.indexOf));
+    var (String r, int rLen) = changeBase(values);
 
     if (_zeroPadding) {
       final int currentLength = rLen;
