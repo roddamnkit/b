@@ -65,7 +65,6 @@ class BaseConversion extends InvertibleFunction<String, String> {
     final int toBase = _toAlphabet.radix;
 
     (String, int) changeBase(List<int> _values) {
-      // Horner's method
       final List<int> values = <int>[];
       for (int i = 0; i < _values.length; i++) {
         if (_values[i] != 0) {
@@ -78,23 +77,74 @@ class BaseConversion extends InvertibleFunction<String, String> {
         return ('', 0);
       }
 
-      int remainder = 0;
-      final List<int> quotients = <int>[];
-      for (final int value in values) {
-        remainder = (remainder * fromBase) + value;
+      if (_intLengthFactor == 1 || _intLengthFactor == -1) {
+        final StringBuffer sb = StringBuffer();
+        for (final int value in values) {
+          sb.write(_toAlphabet._characters[value]);
+        }
 
-        quotients.add(remainder ~/ toBase);
-        remainder = remainder % toBase;
+        return (sb.toString(), values.length);
+      } else if (_intLengthFactor == 0 ||
+          values.length == 1 ||
+          (_intLengthFactor < 0 && _intLengthFactor + values.length <= 0)) {
+        // Horner's method
+        int remainder = 0;
+        final List<int> quotients = <int>[];
+        for (final int value in values) {
+          remainder = (remainder * fromBase) + value;
+
+          quotients.add(remainder ~/ toBase);
+          remainder = remainder % toBase;
+        }
+
+        final (String r, int rLen) = changeBase(quotients);
+
+        return (r + _toAlphabet._characters[remainder], rLen + 1);
+      } else if (_intLengthFactor > 0) {
+        var (StringBuffer sb, int rLen) = (StringBuffer(), 0);
+        for (int i = 0; i < values.length; i++) {
+          final (String _r, int _rLen) = changeBase(values.sublist(i, i + 1));
+          if (i > 0) {
+            sb.write(_toAlphabet._zeroCharacter * (_intLengthFactor - _rLen));
+            sb.write(_r);
+            rLen += _intLengthFactor;
+          } else {
+            sb.write(_r);
+            rLen += _rLen;
+          }
+        }
+
+        return (sb.toString(), rLen);
+      } else {
+        // _intLengthFactor < 0
+        var (StringBuffer sb, int rLen) = (StringBuffer(), 0);
+        int i = values.length % (-_intLengthFactor);
+        if (i > 0) {
+          i += _intLengthFactor;
+        }
+        for (; i < values.length; i -= _intLengthFactor) {
+          List<int> _values;
+          if (i > 0) {
+            _values = values.sublist(i, i - _intLengthFactor);
+            final (String _r, int _rLen) = changeBase(_values);
+            sb.write(_toAlphabet._zeroCharacter * (1 - _rLen));
+            sb.write(_r);
+            rLen += 1;
+          } else {
+            _values = values.sublist(0, i - _intLengthFactor);
+            final (String _r, int _rLen) = changeBase(_values);
+            sb.write(_r);
+            rLen += _rLen;
+          }
+        }
+
+        return (sb.toString(), rLen);
       }
-
-      final (String r, int rLen) = changeBase(quotients);
-
-      return (r + _toAlphabet._characters[remainder], rLen + 1);
     }
 
     final List<int> values = <int>[];
     for (final String char in ip.characters) {
-      values.add(_fromAlphabet._characters.indexOf(char));
+      values.add(_fromAlphabet._characterset[char]!);
     }
     final int ipLen = values.length;
 

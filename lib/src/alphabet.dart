@@ -8,6 +8,11 @@ class Alphabet {
     String radixPoint = '.',
     String repetendSymbols = '()',
   })  : _characters = alphabet.characters.toList(),
+        _characterset = alphabet.characters.fold<Map<String, int>>(
+            <String, int>{}, (Map<String, int> previousValue, String element) {
+          previousValue[element] = previousValue.length;
+          return previousValue;
+        }),
         _zeroCharacter = alphabet.characters.first,
         _radixCharacter = radixPoint.characters.length == 1
             ? radixPoint.characters.first
@@ -59,6 +64,7 @@ class Alphabet {
   }
 
   final List<String> _characters;
+  final Map<String, int> _characterset;
   final String _zeroCharacter;
 
   final String _radixCharacter;
@@ -75,7 +81,7 @@ class Alphabet {
     bool foundRepetendStartCharacter = false;
     bool foundRepetendEndCharacter = false;
     for (final String character in s.characters) {
-      if (!_characters.contains(character) &&
+      if (_characterset[character] == null &&
           _radixCharacter != character &&
           _repetendStartCharacter != character &&
           _repetendEndCharacter != character) {
