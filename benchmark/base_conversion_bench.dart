@@ -36,7 +36,7 @@ class ASCIIConverterBenchmark extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 1335 ns/op
+    // 1326 ns/op
     b(s);
   }
 
@@ -57,7 +57,7 @@ class NonASCIIConverterBenchmark extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 1739 ns/op
+    // 1674 ns/op
     b(s);
   }
 
@@ -79,7 +79,7 @@ class IntegerLengthFactorConverterBenchmark1 extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 4625 ns/op
+    // 2609 ns/op
     b(s);
   }
 
@@ -101,7 +101,7 @@ class IntegerLengthFactorConverterBenchmark2 extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 1538 ns/op
+    // 922 ns/op
     b(s);
   }
 
@@ -123,7 +123,7 @@ class IntegerLengthFactorConverterBenchmark3 extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 1176 ns/op
+    // 1189 ns/op
     b(s);
   }
 
@@ -145,7 +145,7 @@ class NonIntegerLengthFactorConverterBenchmark1 extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 5090 ns/op
+    // 2978 ns/op
     b(s);
   }
 
@@ -167,7 +167,7 @@ class NonIntegerLengthFactorConverterBenchmark2 extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 4538 ns/op
+    // 2410 ns/op
     b(s);
   }
 
@@ -189,7 +189,7 @@ class NonIntegerLengthFactorConverterBenchmark3 extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 1165 ns/op
+    // 1188 ns/op
     b(s);
   }
 
@@ -211,7 +211,7 @@ class NonIntegerLengthFactorConverterBenchmark4 extends CustomBenchmarkBase {
 
   @override
   void run() {
-    // 1171 ns/op
+    // 1181 ns/op
     b(s);
   }
 

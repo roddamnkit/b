@@ -84,9 +84,10 @@ class BaseConversion extends InvertibleFunction<String, String> {
         }
 
         return (sb.toString(), values.length);
-      } else if (_intLengthFactor == 0 ||
+      } else /*if (_intLengthFactor == 0 ||
           values.length == 1 ||
-          (_intLengthFactor < 0 && _intLengthFactor + values.length <= 0)) {
+          (_intLengthFactor < 0 && _intLengthFactor + values.length <= 0))*/
+      {
         // Horner's method
         int remainder = 0;
         final List<int> quotients = <int>[];
@@ -100,7 +101,7 @@ class BaseConversion extends InvertibleFunction<String, String> {
         final (String r, int rLen) = changeBase(quotients);
 
         return (r + _toAlphabet._characters[remainder], rLen + 1);
-      } else if (_intLengthFactor > 0) {
+      } /*else if (_intLengthFactor > 0) {
         var (StringBuffer sb, int rLen) = (StringBuffer(), 0);
         for (int i = 0; i < values.length; i++) {
           final (String _r, int _rLen) = changeBase(values.sublist(i, i + 1));
@@ -139,7 +140,7 @@ class BaseConversion extends InvertibleFunction<String, String> {
         }
 
         return (sb.toString(), rLen);
-      }
+      }*/
     }
 
     final List<int> values = <int>[];
